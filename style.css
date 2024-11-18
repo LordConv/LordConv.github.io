@@ -9,6 +9,22 @@ body {
 
 /* Header Styles */
 header {
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY7WwSV_vQhIAsq2VFXuimm7DRR5ZlTth0gg&s') no-repeat center center/cover;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    background-size: cover; /* Ensures the image covers the header */
+    background-attachment: fixed; /* Optional: Creates a parallax effect */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adds contrast for text readability */
+}
+
+header {
     background: #ff6f91;
     color: #fff;
     padding: 1rem 0;
