@@ -8,6 +8,12 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <!-- Cart Icon -->
+    <div id="cart-icon">
+        🛒
+        <span id="cart-count">0</span>
+    </div>
+
     <!-- Top Header Section -->
     <header class="header">
         <div class="header-content">
@@ -63,5 +69,18 @@
     <footer>
         <p>&copy; 2024 Arteazy Art Shop. All rights reserved.</p>
     </footer>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="hidden">
+        <div class="cart-content">
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <div class="cart-footer">
+                <p id="cart-total">Total: $0.00</p>
+                <button id="checkout-button">Checkout</button>
+                <button id="continue-shopping-button">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
