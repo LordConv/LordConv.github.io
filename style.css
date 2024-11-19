@@ -9,24 +9,91 @@ body {
 
 /* Header */
 header {
-    background-image: url("https://images.wallpapersden.com/image/download/artistic-landscape-4k-colorful-painting_bWtrbGyUmZqaraWkpJRobWllrWdma2U.jpg");
+    background-image: url("Background1.jpg");
     color: white;
     text-align: center;
-    padding: 2rem;
+    padding: 3rem 2rem;
     background-size: cover;
     background-position: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 header h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin: 0;
+    text-transform: uppercase;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
 }
 
 header p {
     font-size: 1.5rem;
     margin-top: 0.5rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    font-style: italic;
+}
+
+header .shop-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #ff4081;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+header .shop-button:hover {
+    background-color: #e0366f;
+}
+
+/* Introduction Section */
+.intro-section {
+    background-image: url("Background2.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 3rem 2rem;
+    color: white;
+    text-align: center;
+}
+
+.intro-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.intro-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.intro-section .intro-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #6a1b9a;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.intro-section .intro-button:hover {
+    background-color: #5a1480;
 }
 
 /* Products Row */
