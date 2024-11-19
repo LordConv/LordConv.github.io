@@ -8,8 +8,13 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <!-- Home Button -->
+    <div id="home-button">
+        <a href="index.html">🏠 Home</a>
+    </div>
+
     <!-- Cart Icon -->
-    <div id="cart-icon">
+    <div id="cart-icon" class="hidden">
         🛒
         <span id="cart-count">0</span>
     </div>
@@ -77,7 +82,7 @@
             <div id="cart-items"></div>
             <div class="cart-footer">
                 <p id="cart-total">Total: $0.00</p>
-                <button id="checkout-button">Checkout</button>
+                <button id="checkout-button">Checkout Now</button>
                 <button id="continue-shopping-button">Continue Shopping</button>
             </div>
         </div>
