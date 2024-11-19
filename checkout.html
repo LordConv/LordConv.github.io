@@ -1,74 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout Page</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
-</head>
-<body>
-    <header>
-        <h1>Checkout</h1>
-    </header>
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: #333;
+}
 
-    <main class="checkout">
-        <div class="checkout-container">
-            <h2 id="product-name">Product Name</h2>
-            <p id="product-price">Price: $0.00</p>
-            <p>Select Quantity:</p>
-            <input type="number" id="quantity" min="1" value="1">
-            <p id="total-price">Total Price: $0.00</p>
-            <div id="paypal-button-container"></div>
-        </div>
-    </main>
+/* Header */
+header {
+    background-image: url("https://images.wallpapersden.com/image/download/artistic-landscape-4k-colorful-painting_bWtrbGyUmZqaraWkpJRobWllrWdma2U.jpg");
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+    background-size: cover;
+}
 
-    <footer>
-        <p>© 2024 Arteazy Art Shop</p>
-    </footer>
+/* Products Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 2rem;
+}
 
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const productName = urlParams.get("name");
-        const productPrice = parseFloat(urlParams.get("price"));
+.product-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
 
-        document.getElementById("product-name").textContent = productName;
-        document.getElementById("product-price").textContent = `Price: $${productPrice.toFixed(2)}`;
+.product-item:hover {
+    transform: scale(1.05);
+}
 
-        const quantityInput = document.getElementById("quantity");
-        const totalPriceElement = document.getElementById("total-price");
+.product-item img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
 
-        const updateTotalPrice = () => {
-            const quantity = parseInt(quantityInput.value) || 1;
-            const totalPrice = quantity * productPrice;
-            totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(2)}`;
-        };
-        quantityInput.addEventListener("input", updateTotalPrice);
-        updateTotalPrice();
+.product-item h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
 
-        paypal.Buttons({
-            createOrder: (data, actions) => {
-                const quantity = parseInt(quantityInput.value) || 1;
-                const totalPrice = quantity * productPrice;
+.product-item p {
+    font-size: 1rem;
+    color: #888;
+}
 
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: totalPrice.toFixed(2),
-                        },
-                    }],
-                });
-            },
-            onApprove: (data, actions) => {
-                return actions.order.capture().then((details) => {
-                    alert(`Transaction completed by ${details.payer.name.given_name}!`);
-                });
-            },
-            onError: (err) => {
-                console.error("PayPal Checkout Error:", err);
-                alert("An error occurred during payment. Please try again.");
-            },
-        }).render("#paypal-button-container");
-    </script>
-</body>
-</html>
+/* Checkout Styles */
+.checkout-container {
+    background: #fff;
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.checkout-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.checkout-container p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    background: #f9f9f9;
+}
