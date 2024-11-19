@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
+</head>
+<body>
+    <header>
+        <h1>Checkout</h1>
+    </header>
+
+    <main class="checkout">
+        <div class="checkout-container">
+            <h2 id="product-name">Product Name</h2>
+            <p>Select Quantity:</p>
+            <input type="number" id="quantity" min="1" value="1">
+            <p id="total-price">Total Price: $20.00</p>
+            <div id="paypal-button-container"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Arteazy Art Shop</p>
+    </footer>
+
+    <script>
+        // Mock product price (you can dynamically fetch this from a database)
+        const pricePerUnit = 20;
+
+        // Update total price dynamically based on quantity
+        const quantityInput = document.getElementById('quantity');
+        const totalPriceElement = document.getElementById('total-price');
+
+        quantityInput.addEventListener('input', () => {
+            const quantity = parseInt(quantityInput.value) || 1;
+            const totalPrice = quantity * pricePerUnit;
+            totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(2)}`;
+        });
+
+        // PayPal Button Render
+        paypal.Buttons({
+            createOrder: (data, actions) => {
+                const quantity = parseInt(quantityInput.value) || 1;
+                const totalPrice = quantity * pricePerUnit;
+
+                // Create order on PayPal
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: totalPrice.toFixed(2), // Use the calculated total price
+                        },
+                    }],
+                });
+            },
+            onApprove: (data, actions) => {
+                // Capture the order
+                return actions.order.capture().then((details) => {
+                    alert(`Transaction completed by ${details.payer.name.given_name}!`);
+                });
+            },
+            onError: (err) => {
+                console.error('PayPal Checkout Error:', err);
+                alert('An error occurred during payment. Please try again.');
+            },
+        }).render('#paypal-button-container');
+    </script>
+</body>
+</html>
