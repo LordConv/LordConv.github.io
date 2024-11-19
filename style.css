@@ -1,9 +1,9 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: white;
+    background-color: #f9f9f9;
     color: #333;
 }
 
@@ -12,43 +12,59 @@ header {
     background-image: url("https://images.wallpapersden.com/image/download/artistic-landscape-4k-colorful-painting_bWtrbGyUmZqaraWkpJRobWllrWdma2U.jpg");
     color: white;
     text-align: center;
-    padding: 1.5rem 0;
+    padding: 2rem;
     background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Products Grid */
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+header h1 {
+    font-size: 3rem;
+    margin: 0;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+header p {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+/* Products Row */
+.products-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
     padding: 2rem;
 }
 
 .product-item {
-    background: #fff;
+    background: white;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1rem;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
+    width: 230px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .product-item:hover {
     transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .product-item img {
     width: 100%;
     height: auto;
-    max-height: 200px;
-    object-fit: cover;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
+    border-radius: 5px;
 }
 
 .product-item h3 {
     font-size: 1.2rem;
     margin: 0.5rem 0;
+    color: #222;
 }
 
 .product-item p {
@@ -56,10 +72,19 @@ header {
     color: #888;
 }
 
-/* Checkout Styles */
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    background: #222;
+    color: white;
+}
+
+/* Checkout Page Styles */
 .checkout-container {
-    background: #fff;
-    max-width: 500px;
+    background: white;
+    max-width: 600px;
     margin: 2rem auto;
     padding: 1.5rem;
     border-radius: 8px;
@@ -70,16 +95,25 @@ header {
 .checkout-container h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
+    color: #444;
 }
 
 .checkout-container p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin: 0.5rem 0;
+    color: #666;
 }
 
-footer {
+.checkout-container input[type="number"] {
+    font-size: 1rem;
+    padding: 0.5rem;
+    width: 80px;
     text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
-    background: #f9f9f9;
+    margin: 1rem 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#paypal-button-container {
+    margin-top: 1rem;
 }
