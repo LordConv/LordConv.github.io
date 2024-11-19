@@ -1,13 +1,14 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const products = document.querySelectorAll(".product-item");
+// Cart array to store added items
+let cart = [];
 
-    products.forEach((product) => {
-        product.addEventListener("click", () => {
-            const productId = product.getAttribute("data-id");
-            const productName = product.querySelector("h3").textContent;
-            const productPrice = product.querySelector("p").textContent.replace("$", "");
-
-            window.location.href = `checkout.html?id=${productId}&name=${encodeURIComponent(productName)}&price=${productPrice}`;
-        });
-    });
+// Handle "Add to Cart" button click
+document.addEventListener("click", (event) => {
+    if (event.target.classList.contains("add-to-cart")) {
+        const productInfo = {
+            name: event.target.parentElement.querySelector("h1").textContent,
+            price: event.target.parentElement.querySelector("p:nth-child(3)").textContent,
+        };
+        cart.push(productInfo);
+        alert(`${productInfo.name} has been added to your cart!`);
+    }
 });
