@@ -1,4 +1,4 @@
-// Cart array to store added items
+// Array to store cart items
 let cart = [];
 
 // Handle "Add to Cart" button click
