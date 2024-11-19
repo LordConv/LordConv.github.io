@@ -1,16 +1,16 @@
-// JavaScript to handle product clicks and redirection
-
 document.addEventListener("DOMContentLoaded", () => {
-    // Add event listeners to all product items
-    const products = document.querySelectorAll('.product-item');
+    // Select all product items
+    const products = document.querySelectorAll(".product-item");
 
+    // Attach click event listeners
     products.forEach((product) => {
-        product.addEventListener('click', () => {
-            const productName = product.querySelector('h3').textContent; // Get product name
-            const productLink = product.getAttribute('data-link'); // Get eBay link from data attribute
+        product.addEventListener("click", () => {
+            const productId = product.getAttribute("data-id"); // Get product ID
+            const productName = product.querySelector("h3").textContent; // Get product name
+            const productPrice = product.querySelector("p").textContent.replace("$", ""); // Get product price
 
-            // Redirect to the checkout page with product details in the URL
-            window.location.href = `checkout.html?product=${encodeURIComponent(productName)}&link=${encodeURIComponent(productLink)}`;
+            // Redirect to checkout.html with product info in URL parameters
+            window.location.href = `checkout.html?id=${productId}&name=${encodeURIComponent(productName)}&price=${productPrice}`;
         });
     });
 });
