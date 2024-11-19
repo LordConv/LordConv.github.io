@@ -15,15 +15,14 @@
 
     <!-- Cart Icon -->
     <div id="cart-icon" class="hidden">
-        🛒
-        <span id="cart-count">0</span>
+        🛒 <span id="cart-count">0</span>
     </div>
 
-    <!-- Top Header Section -->
+    <!-- Header Section -->
     <header class="header">
         <div class="header-content">
             <h1>ARTEAZY ART SHOP</h1>
-            <p class="motto">Inspiring Creativity, One Tool at a Time</p>
+            <p class="motto">"Inspiring Creativity, One Tool at a Time"</p>
             <a href="#products" class="shop-button">Shop Our Products</a>
         </div>
     </header>
@@ -38,8 +37,28 @@
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="products" class="products-row">
+    <!-- Categories Section -->
+    <section id="categories" class="categories">
+        <h2>Shop by Categories</h2>
+        <div class="category-row">
+            <div class="category-item">
+                <img src="category_markers.jpg" alt="Markers">
+                <h3>Markers</h3>
+            </div>
+            <div class="category-item">
+                <img src="category_pens.jpg" alt="Pens">
+                <h3>Pens</h3>
+            </div>
+            <div class="category-item">
+                <img src="category_erasers.jpg" alt="Erasers">
+                <h3>Erasers</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section id="featured" class="featured">
+        <h2>Featured Products</h2>
         <div class="product-item" data-id="1">
             <a href="product1.html">
                 <img src="36.jpg" alt="36 Colored Marker Set">
@@ -70,9 +89,41 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial">
+            <p>"Arteazy Art Shop has the best markers I've ever used! The colors are vibrant and long-lasting."</p>
+            <p>- Alex J.</p>
+        </div>
+        <div class="testimonial">
+            <p>"Love the variety of tools available. Arteazy truly understands an artist's needs."</p>
+            <p>- Casey L.</p>
+        </div>
+        <div class="testimonial">
+            <p>"Their products helped me bring my ideas to life. 10/10 would recommend."</p>
+            <p>- Jamie W.</p>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="newsletter">
+        <h2>Stay Updated</h2>
+        <p>Sign up for our newsletter to receive updates on new products, special offers, and more!</p>
+        <form id="newsletter-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
     <!-- Footer Section -->
     <footer>
         <p>&copy; 2024 Arteazy Art Shop. All rights reserved.</p>
+        <div class="socials">
+            <a href="https://facebook.com" target="_blank">Facebook</a> |
+            <a href="https://instagram.com" target="_blank">Instagram</a> |
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+        </div>
     </footer>
 
     <!-- Cart Modal -->
