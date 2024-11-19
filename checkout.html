@@ -3,72 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout Page</title>
+    <title>Checkout - Arteazy Art Shop</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
+    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
+        <div id="home-button">
+            <a href="index.html">Home</a>
+        </div>
         <h1>Checkout</h1>
     </header>
-
-    <main class="checkout">
-        <div class="checkout-container">
-            <h2 id="product-name">Product Name</h2>
-            <p id="product-price">Price: $0.00</p>
-            <p>Select Quantity:</p>
-            <input type="number" id="quantity" min="1" value="1">
-            <p id="total-price">Total Price: $0.00</p>
-            <div id="paypal-button-container"></div>
+    <main>
+        <div id="checkout-cart">
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <div id="cart-footer">
+                <p>Total: $<span id="cart-total">0.00</span></p>
+                <div id="paypal-button-container"></div>
+            </div>
         </div>
     </main>
-
-    <footer>
-        <p>© 2024 Arteazy Art Shop</p>
-    </footer>
-
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const productName = urlParams.get("name");
-        const productPrice = parseFloat(urlParams.get("price"));
-
-        document.getElementById("product-name").textContent = productName;
-        document.getElementById("product-price").textContent = `Price: $${productPrice.toFixed(2)}`;
-
-        const quantityInput = document.getElementById("quantity");
-        const totalPriceElement = document.getElementById("total-price");
-
-        const updateTotalPrice = () => {
-            const quantity = parseInt(quantityInput.value) || 1;
-            const totalPrice = quantity * productPrice;
-            totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(2)}`;
-        };
-        quantityInput.addEventListener("input", updateTotalPrice);
-        updateTotalPrice();
-
-        paypal.Buttons({
-            createOrder: (data, actions) => {
-                const quantity = parseInt(quantityInput.value) || 1;
-                const totalPrice = quantity * productPrice;
-
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: totalPrice.toFixed(2),
-                        },
-                    }],
-                });
-            },
-            onApprove: (data, actions) => {
-                return actions.order.capture().then((details) => {
-                    alert(`Transaction completed by ${details.payer.name.given_name}!`);
-                });
-            },
-            onError: (err) => {
-                console.error("PayPal Checkout Error:", err);
-                alert("An error occurred during payment. Please try again.");
-            },
-        }).render("#paypal-button-container");
-    </script>
 </body>
 </html>
